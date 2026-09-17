@@ -22,7 +22,7 @@ else, read the first two tables.
 
 | Command | Needs | Does NOT need |
 |---|---|---|
-| Everything `/harness:*` | **Claude Code** with the plugin installed — terminal CLI, desktop app, or IDE extension all work | Plain claude.ai chat, Cursor, or other agents — none of them run plugins. Codex users: the reduced port in `codex/` |
+| Everything `/harness:*` | **Claude Code** with the plugin installed — terminal CLI, desktop app, or IDE extension all work | Plain claude.ai chat, Cursor, or other agents — none of them run plugins. Codex users: the reduced port in `codex/`; OpenCode users: `opencode/` |
 | `/harness:plan`, `/harness:plan-graph` | Nothing beyond the plugin | A filled-in CLAUDE.md helps (domain routing) but isn't required |
 | `/harness:review` (both modes) | `git`; your project's type-check command (default `npx tsc --noEmit`) | GitHub CLI |
 | `/harness:commit` | `git` with a push-able remote (it ends with `git push origin HEAD`) | **GitHub CLI — not needed.** No `gh`, no GitHub account requirement |
@@ -31,6 +31,7 @@ else, read the first two tables.
 | `--graph` review, full lens coverage | The `pr-review-toolkit` plugin (claude-plugins-official) for 2 of 5 lenses | Without it those two lenses skip gracefully and the result is marked partial |
 | `global/install.sh` | macOS-ish environment (the hooks use AppleScript), `jq`, `python3` | Skip it entirely on Linux — the engine works without it |
 | `codex/install.sh` | OpenAI Codex ≥ 0.98 | — |
+| `opencode/install.sh` | OpenCode (verified on 1.18.31); `node` only for `--with-agents` | `jq`, the GitHub CLI |
 
 One sentence to remember: **only `/harness:pr` touches the GitHub CLI.**
 Everything else is plain git.
