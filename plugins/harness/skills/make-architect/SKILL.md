@@ -7,7 +7,7 @@ argument-hint: [stack (e.g. c++) or domain (e.g. billing, src/protocol/)]
 # Make Architect
 
 Generate an architect agent for this project. Full background:
-https://github.com/juaninamilliom/agent-harness/blob/main/docs/building-architects.md
+https://github.com/juaninamilliom/agent-harness-config/blob/main/docs/building-architects.md
 
 $ARGUMENTS — a stack name (craft) or a domain/subsystem (domain). Ambiguous
 or empty: ask.

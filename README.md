@@ -1,4 +1,4 @@
-# agent-harness
+# agent-harness-config
 
 A project-agnostic development harness for Claude Code (and, reduced, for
 OpenAI Codex and OpenCode). Extracted from a production setup; survives any single
@@ -42,9 +42,12 @@ prompt (the project's committed `.claude/settings.json` carries it). Done —
 **Path 2 — just the engine, any machine, two commands:**
 
 ```bash
-claude plugin marketplace add juaninamilliom/agent-harness
+claude plugin marketplace add juaninamilliom/agent-harness-config
 claude plugin install harness@agent-harness
 ```
+
+The repo was renamed from `agent-harness`; the marketplace keeps its name, so
+`harness@agent-harness` and every already-scaffolded project keep working.
 
 `/harness:*` now works in every directory. Skills degrade gracefully without
 a scaffolded CLAUDE.md (repo-default branches, lockfile-detected installs,
@@ -53,7 +56,7 @@ generic architects only).
 **Path 3 — full adoption (your machine + your projects):**
 
 ```bash
-git clone https://github.com/juaninamilliom/agent-harness.git && cd agent-harness
+git clone https://github.com/juaninamilliom/agent-harness-config.git && cd agent-harness-config
 
 # 1. Global layer + engine everywhere (macOS-oriented: hooks use AppleScript;
 #    Linux users should skip this and take Path 2)
