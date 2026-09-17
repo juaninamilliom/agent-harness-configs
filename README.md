@@ -1,7 +1,7 @@
-# agent-harness
+# agent-harness-config
 
 A project-agnostic development harness for Claude Code (and, reduced, for
-OpenAI Codex). Extracted from a production setup; survives any single
+OpenAI Codex and OpenCode). Extracted from a production setup; survives any single
 project. Works in any Claude Code surface — terminal CLI, desktop app, or
 IDE extension — wherever the plugin is installed.
 
@@ -20,6 +20,7 @@ teaches the engine your project's specifics.
 | **Understand the graph-verified planner in depth** | [docs/plan-graph.md](docs/plan-graph.md) — pipeline, every knob, failure semantics, recovery |
 | **Understand the thinking behind the harness** | [docs/philosophy.md](docs/philosophy.md) — the workflow discipline, tool-agnostic |
 | **Use OpenAI Codex** | `codex/install.sh`, and [docs/porting.md](docs/porting.md) for what maps and what doesn't |
+| **Use OpenCode** (including with local models) | `opencode/install.sh` (add `--with-agents` for the architects as subagents), and [docs/porting.md](docs/porting.md) |
 | **Add an integration** (ticketing etc.) | [addons/README.md](addons/README.md) — integrations wrap the engine, never enter it |
 | **Contribute / understand the internals** | [plugins/harness/FROZEN.md](plugins/harness/FROZEN.md) (rules that must not decay) and `tests/run-all.sh` (the gate — keep it ALL GREEN) |
 
@@ -41,9 +42,12 @@ prompt (the project's committed `.claude/settings.json` carries it). Done —
 **Path 2 — just the engine, any machine, two commands:**
 
 ```bash
-claude plugin marketplace add juaninamilliom/agent-harness
+claude plugin marketplace add juaninamilliom/agent-harness-config
 claude plugin install harness@agent-harness
 ```
+
+The repo was renamed from `agent-harness`; the marketplace keeps its name, so
+`harness@agent-harness` and every already-scaffolded project keep working.
 
 `/harness:*` now works in every directory. Skills degrade gracefully without
 a scaffolded CLAUDE.md (repo-default branches, lockfile-detected installs,
@@ -52,7 +56,7 @@ generic architects only).
 **Path 3 — full adoption (your machine + your projects):**
 
 ```bash
-git clone https://github.com/juaninamilliom/agent-harness.git && cd agent-harness
+git clone https://github.com/juaninamilliom/agent-harness-config.git && cd agent-harness-config
 
 # 1. Global layer + engine everywhere (macOS-oriented: hooks use AppleScript;
 #    Linux users should skip this and take Path 2)
@@ -66,6 +70,9 @@ git clone https://github.com/juaninamilliom/agent-harness.git && cd agent-harnes
 
 # 3. Codex (reduced port), optional
 ./codex/install.sh
+
+# 4. OpenCode (port with optional real subagents), optional
+./opencode/install.sh --with-agents
 ```
 
 Forking instead of consuming this marketplace? Re-point one line:

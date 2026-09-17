@@ -1,7 +1,7 @@
 {
   "extraKnownMarketplaces": {
     "agent-harness": {
-      "source": { "source": "github", "repo": "juaninamilliom/agent-harness" }
+      "source": { "source": "github", "repo": "juaninamilliom/agent-harness-config" }
     }
   },
   "enabledPlugins": {
