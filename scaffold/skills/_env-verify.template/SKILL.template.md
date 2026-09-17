@@ -10,8 +10,9 @@ description: >
 
 # Verify __ENV_NAME__
 
-Rename this directory (drop `_` and `.template`) and fill in the three
-access paths. Delete paths that don't exist rather than inventing them.
+Rename this directory (drop `_` and `.template`), rename this file to
+`SKILL.md` (the `.template` name keeps Claude Code and OpenCode from loading
+the unfilled template as a real skill), and fill in the three access paths. Delete paths that don't exist rather than inventing them.
 
 ## Access paths (exhaustive - there is no other way in)
 1. **Logs**: <command or script, e.g. gcloud/kubectl/ssh tail with filters>

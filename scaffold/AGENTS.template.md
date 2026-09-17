@@ -1,7 +1,11 @@
 # AGENTS.md
 
-This file provides guidance to Codex when working with code in this
-repository: __PROJECT_NAME__.
+This file provides guidance to AGENTS.md-reading coding agents (OpenAI Codex,
+OpenCode) working with code in this repository: __PROJECT_NAME__.
+
+Claude Code reads CLAUDE.md instead. Project Overview, Components, Git
+Structure, Worktree Setup and Development Rules describe the same project in
+both files - keep them in sync.
 
 ## ⚠️ STOP: Read This First - Architect Requirement
 
@@ -25,18 +29,21 @@ repository: __PROJECT_NAME__.
 - Simple config value changes
 - Test additions that don't change implementation
 
-**How:** Run the plan protocol (`/prompts:plan`, or the `harness-plan` skill) - it walks
-the council for the domains the task touches.
+**How:** Run the plan protocol - `/prompts:plan` in Codex, `/harness-plan` in
+OpenCode, or the `harness-plan` skill in either - it walks the council for the
+domains the task touches.
 
 **VIOLATION**: Proceeding with major work without architect consultation
 breaks project requirements.
 
 ### Architect Council
 
-Codex has no subagent tool, so there is no one to hand these off to - the
-plan protocol has you write each consultation yourself, in order, inside
-the same context: risks, files to touch, the approach that architect would
-insist on.
+Without a subagent to hand these to (Codex; OpenCode without the harness
+agents), the plan protocol has you write each consultation yourself, in order,
+inside the same context: risks, files to touch, the approach that architect
+would insist on. In OpenCode with the harness agents installed
+(`opencode/install.sh --with-agents`), dispatch each architect as a subagent
+instead - it starts from a fresh context.
 
 | Architect | Domain | Triggers |
 |-------|--------|----------|
@@ -48,7 +55,7 @@ insist on.
 | Test architect | Testing | tests, coverage, mocks, `*.test.*` |
 | Performance architect | Performance | optimization, cache, bundle, slow |
 | Docs architect | Documentation | docs, README, JSDoc, guides |
-| AI systems architect | AI/LLM/MCP | agents, prompts, MCP, `.codex/` |
+| AI systems architect | AI/LLM/MCP | agents, prompts, MCP, `.codex/`, `.opencode/` |
 | Android architect | Android/Kotlin | `*.kt`, Android Studio, Gradle |
 <!-- FILL: add one row per domain architect this project needs, e.g.:
 | Billing architect | Payments/billing | invoices, subscriptions, src/billing/** | -->

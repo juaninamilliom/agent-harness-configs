@@ -15,10 +15,14 @@ chk "settings enable plugin"       'jq -e ".enabledPlugins[\"harness@agent-harne
 chk "settings.local stamped"       'test -f "$SB/proj/.claude/settings.local.json"'
 chk "domain template stamped"      'test -f "$SB/proj/.claude/agents/_domain-architect.template.md"'
 chk "craft template stamped"       'test -f "$SB/proj/.claude/agents/_craft-architect.template.md"'
-chk "env-verify template stamped"  'test -f "$SB/proj/.claude/skills/_env-verify.template/SKILL.md"'
+chk "env-verify template stamped"  'test -f "$SB/proj/.claude/skills/_env-verify.template/SKILL.template.md"'
+chk "env-verify not a live skill"  '! test -e "$SB/proj/.claude/skills/_env-verify.template/SKILL.md"'
+chk "AGENTS.md stamped"            'test -f "$SB/proj/AGENTS.md" && grep -q "My Project" "$SB/proj/AGENTS.md"'
+chk "AGENTS.md is tool-neutral"    'grep -q "/harness-plan" "$SB/proj/AGENTS.md" && grep -q "/prompts:plan" "$SB/proj/AGENTS.md"'
 chk "risk patterns example"        'test -f "$SB/proj/.claude/risk-patterns.txt.example"'
 
 echo "user edit" >> "$SB/proj/CLAUDE.md"
+echo "user agents edit" >> "$SB/proj/AGENTS.md"
 ./scaffold/init.sh "$SB/proj" "My Project" > "$SB/init2.log" 2>&1 || true
-chk "never overwrites owned files" 'grep -q "user edit" "$SB/proj/CLAUDE.md" && grep -qi "exists" "$SB/init2.log"'
+chk "never overwrites owned files" 'grep -q "user edit" "$SB/proj/CLAUDE.md" && grep -q "user agents edit" "$SB/proj/AGENTS.md" && grep -qi "exists" "$SB/init2.log"'
 exit $fail
