@@ -5,7 +5,7 @@ domain and generate the architect, handing it this file as the required
 output shape. The prompts (including the investigate-first domain prompt),
 the mandatory-sections table, and the quality bar are in
 docs/building-architects.md in the harness repo —
-https://github.com/juaninamilliom/agent-harness-config/blob/main/docs/building-architects.md
+https://github.com/juaninamilliom/agent-harness-configs/blob/main/docs/building-architects.md
 The carving rules below decide WHEN a domain earns an architect; only you
 can supply the war stories that make its What-you-know section true.
 

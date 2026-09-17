@@ -64,8 +64,8 @@ echo "skills installed: $skills_installed (at $TARGET/skills)"
 
 # (c) global rules: a marked block inside AGENTS.md. The user's own rules are
 # kept; a re-run replaces only the block.
-BEGIN_MARK='<!-- agent-harness-config:begin (managed by opencode/install.sh - edits inside are overwritten) -->'
-END_MARK='<!-- agent-harness-config:end -->'
+BEGIN_MARK='<!-- agent-harness-configs:begin (managed by opencode/install.sh - edits inside are overwritten) -->'
+END_MARK='<!-- agent-harness-configs:end -->'
 BLOCK="$(mktemp)"; trap 'rm -f "$BLOCK"' EXIT
 { echo "$BEGIN_MARK"; cat "$REPO/opencode/AGENTS.global.md"; echo "$END_MARK"; } > "$BLOCK"
 RULES="$TARGET/AGENTS.md"

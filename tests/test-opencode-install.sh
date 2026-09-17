@@ -23,7 +23,7 @@ printf '# My rules\nmy own rule\n' > "$OC/AGENTS.md"
 ./opencode/install.sh "$OC" > "$SB/install3.log" 2>&1
 chk "existing rules kept"         'grep -q "my own rule" "$OC/AGENTS.md"'
 chk "harness block merged"        'grep -q "Read the code first" "$OC/AGENTS.md"'
-chk "idempotent: one block"       '[ "$(grep -c "agent-harness-config:begin" "$OC/AGENTS.md")" = "1" ]'
+chk "idempotent: one block"       '[ "$(grep -c "agent-harness-configs:begin" "$OC/AGENTS.md")" = "1" ]'
 chk "backup written"              'grep -q "my own rule" "$OC/AGENTS.md.bak"'
 
 ./opencode/install.sh --with-agents "$OC" > "$SB/install4.log" 2>&1

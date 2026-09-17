@@ -4,7 +4,7 @@ You normally do NOT fill this by hand: prompt Claude to generate the
 architect and hand it this file as the required output shape. The prompts,
 the mandatory-sections table, and the quality bar are in
 docs/building-architects.md in the harness repo —
-https://github.com/juaninamilliom/agent-harness-config/blob/main/docs/building-architects.md
+https://github.com/juaninamilliom/agent-harness-configs/blob/main/docs/building-architects.md
 
 (Everything above the `---` line is guidance; delete it when you create a
 real architect from this template. While this text sits above the

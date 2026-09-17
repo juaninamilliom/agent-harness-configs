@@ -21,7 +21,7 @@ It is a separate command on purpose. Nothing here changes `/harness:plan` or any
 Run the same task through both and compare.
 
 Full reference (pipeline, args, failure semantics, resume):
-https://github.com/juaninamilliom/agent-harness-config/blob/main/docs/plan-graph.md
+https://github.com/juaninamilliom/agent-harness-configs/blob/main/docs/plan-graph.md
 
 ## Input
 
