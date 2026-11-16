@@ -143,7 +143,7 @@ so a paraphrase fails.
   at about 30% flaky, which makes a test run evidence in both directions. Frozen rule F2
   forbids it.
 
-### D4. Fail visible, never self-heal
+### D4. Fail visibly, with no self-repair
 
 There are no automatic retries. A missing investigator is named in the log and the run
 is stamped `partial`. A refuter that crashes leaves its finding `unverified`, which is
@@ -195,7 +195,7 @@ port runs the graph workflows, because neither tool has an orchestration primiti
 | Failure | Behavior |
 |---|---|
 | Lead returns nothing or one brief | Run ends early, `partial: true`, explicit error |
-| Investigator returns nothing | Counted as missing, never as agreeing; run continues as partial |
+| Investigator returns nothing | Counted as missing; run continues as partial |
 | Refuter crashes | Finding stays `unverified` |
 | Whole verify layer dies | Findings preserved; log prints the resume instruction |
 | Synthesizer returns nothing | Verified findings returned; plan empty; partial |
