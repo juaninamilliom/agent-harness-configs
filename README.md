@@ -1,5 +1,7 @@
 # agent-harness-config
 
+[![CI](https://github.com/juaninamilliom/agent-harness-configs/actions/workflows/ci.yml/badge.svg)](https://github.com/juaninamilliom/agent-harness-configs/actions/workflows/ci.yml)
+
 A project-agnostic development harness for Claude Code (and, reduced, for
 OpenAI Codex and OpenCode). Extracted from a production setup; survives any single
 project. Works in any Claude Code surface — terminal CLI, desktop app, or
@@ -18,11 +20,12 @@ teaches the engine your project's specifics.
 | **Install it** (machine or project) | [Getting started](#getting-started--pick-your-path), just below |
 | **Create expert agents for your stack or your domains** | [docs/building-architects.md](docs/building-architects.md) — Claude generates them; you supply context and judge. Or just run `/harness:make-architect` |
 | **Understand the graph-verified planner in depth** | [docs/plan-graph.md](docs/plan-graph.md) — pipeline, every knob, failure semantics, recovery |
+| **Understand how it is built and why** | [docs/design.md](docs/design.md) — architecture, key decisions with the alternatives rejected, failure model, testing, limits |
 | **Understand the thinking behind the harness** | [docs/philosophy.md](docs/philosophy.md) — the workflow discipline, tool-agnostic |
 | **Use OpenAI Codex** | `codex/install.sh`, and [docs/porting.md](docs/porting.md) for what maps and what doesn't |
 | **Use OpenCode** (including with local models) | `opencode/install.sh` (add `--with-agents` for the architects as subagents), and [docs/porting.md](docs/porting.md) |
 | **Add an integration** (ticketing etc.) | [addons/README.md](addons/README.md) — integrations wrap the engine, never enter it |
-| **Contribute / understand the internals** | [plugins/harness/FROZEN.md](plugins/harness/FROZEN.md) (rules that must not decay) and `tests/run-all.sh` (the gate — keep it ALL GREEN) |
+| **Contribute / understand the internals** | [plugins/harness/FROZEN.md](plugins/harness/FROZEN.md) (rules that must not decay) and `tests/run-all.sh` (the gate — keep it ALL GREEN; CI runs it on Ubuntu and macOS) |
 
 ## The three surfaces
 
